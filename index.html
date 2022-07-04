@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="style.css">
+	</head>
+
+	<body>		
+		<div id = "charSheet" class = "charSheet">
+		<div class="maininf">
+			<div class="bio">
+				<div>
+					<label class="bio-label" for="">Имя.....</label><input type="text" name="" value="">
+				</div>
+				<div>
+					<label class="bio-label"  for="">Раса....</label>
+					<select id="race" onchange="getRace()">
+						<option class="race-option">Кобольд</option>
+						<option class="race-option">Эмберлинг</option>
+						<option class="race-option">Наг</option>
+						<option class="race-option">Эльдранг</option>
+						<option class="race-option">Ящер</option>
+					</select>
+					<label>Кость хитов:</label><label class="hit-die"></label><button onclick="getRace()">reroll</button>
+				</div>
+				<div>
+					<label class="bio-label" for="">Игрок...</label><input type="text" name="" value="">
+				</div>
+				<div>
+					<label class="bio-label" for="">Опыт....</label><input type="text" name="" value="">
+					<label class="bio-label" for="">Дрейки...</label><input type="text" name="" value="">
+				</div>
+			
+				<input type="textarea" name="" class = "biography" value="">
+			</div>
+			<div class="art">
+				<input id="file" type="file" name="" value="">
+				<img id="displayImg" src="" alt="">
+			</div>
+		</div>
+		<div class="section-border"><p>Способности</p></div>
+		<div class="abilities">
+			<div class="atributes">
+				<div class="atribute">
+					<label class="atr-title">СИЛ</label>
+					<input  id="str" type="number"  min="6" max="24" class= "inneratr" value="10" placeholder="10">
+					<label id="strm" class = "modifier">0</label>
+				</div>
+				<div class="atribute">
+					<label class="atr-title">ЛОВ</label>
+					<input  id="ag" type="number"  min="6" max="24" class= "inneratr" value="10" placeholder="10">
+						<label  id="agm" class = "modifier">0</label>
+				</div>
+				<div class="atribute">
+					<label class="atr-title">ТЕЛ</label>
+					<input  id="for" type="number"  min="6" max="24" class= "inneratr" value="10" placeholder="10">
+						<label id="form" class = "modifier">0</label>
+				</div>
+				<div class="atribute">
+					<label class="atr-title">ИНТ</label>
+					<input  id="int" type="number"  min="6" max="24" class= "inneratr" value="10" placeholder="10">
+						<label id="intm" class = "modifier">0</label>
+				</div>
+				<div class="atribute">
+					<label class="atr-title">ВОС</label>
+					<input  id="per" type="number"  min="6" max="24" class= "inneratr" value="10" placeholder="10">
+						<label  id="perm" class = "modifier">0</label>
+				</div>
+				<div class="atribute">
+					<label class="atr-title">ХАР</label>
+					<input  id="ch" type="number"  min="6" max="24" class= "inneratr" value="10" placeholder="10">
+						<label id="chm" class = "modifier">0</label>
+				</div>
+				
+			</div>
+			
+			<div class="hp">
+				<div class="atribute2">
+					<label for="">Здоровье</label></br>
+					<label id="health" >0</label>
+				</div>
+				<div class="atribute2">
+					<label for="">Класс защиты</label></br>
+					<label id = "ac">0</label>
+				</div>
+				<div class="atribute2">
+					<label for="">Инициатива</label></br>
+					<label id="initiative">0</label>
+				</div>
+				<div class="atribute2">
+					<label >Боевой дух</label></br>
+					<label id="morale">0</label>
+				</div>
+			</div>
+			
+		</div>
+		<div class="wrapper">
+			<div class="skills">
+				<div class="label-wrp"><label>+2</label><label>+5</label></div>
+				<div class="skill-wrapper"><label class="cur-skill">Атлетика(<b class="mod-key">СИЛ</b>)</label>
+					<div>
+						<input class="input_check" onclick="inpt()"  type="checkbox">
+						<input class="input_check_5"  onclick="inpt5()" type="checkbox">
+					</div>
+					<label class="skill-bonus">0</label>
+				</div>
+				<div class="skill-wrapper"><label class="cur-skill">Акробатика(<b class="mod-key">ЛОВ</b>)</label>
+					<div>
+						<input class="input_check" onclick="inpt()" type="checkbox">
+						<input class="input_check_5"  onclick="inpt5()" type="checkbox">
+					</div>
+					<label class="skill-bonus">0</label>
+				</div>
+				<div class="skill-wrapper"><label class="cur-skill">Артистизм(<b class="mod-key">ХАР</b>)</label>
+					<div>
+						<input class="input_check" onclick="inpt()" type="checkbox">
+						<input class="input_check_5"  onclick="inpt5()" type="checkbox">
+					</div>
+					<label class="skill-bonus">0</label>
+				</div>
+				<div class="skill-wrapper"><label class="cur-skill">Внимательность(<b class="mod-key">ВОС</b>)</label>
+					<div>
+						<input class="input_check" onclick="inpt()" type="checkbox">
+						<input class="input_check_5"  onclick="inpt5()" type="checkbox">
+					</div>
+					<label class="skill-bonus">0</label>
+				</div>
+				<div class="skill-wrapper"><label class="cur-skill">Выживание(<b class="mod-key">ВОС</b>)</label>
+					<div>
+						<input class="input_check" onclick="inpt()" type="checkbox">
+						<input class="input_check_5"  onclick="inpt5()" type="checkbox">
+					</div>
+					<label class="skill-bonus">0</label>
+				</div>
+				<div class="skill-wrapper"><label class="cur-skill">Запугивание(<b class="mod-key">СИЛ</b>)</label>
+					<div>
+						<input class="input_check" onclick="inpt()" type="checkbox">
+						<input class="input_check_5"  onclick="inpt5()" type="checkbox">
+					</div>
+					<label class="skill-bonus">0</label>
+				</div>
+				<div class="skill-wrapper"><label class="cur-skill">Знание природы(<b class="mod-key">ИНТ</b>)</label>
+					<div>
+						<input class="input_check" onclick="inpt()" type="checkbox">
+						<input class="input_check_5"  onclick="inpt5()" type="checkbox">
+					</div>
+					<label class="skill-bonus">0</label>
+				</div>
+				<div class="skill-wrapper"><label class="cur-skill">Инженерное дело(<b class="mod-key">ИНТ</b>)</label>
+					<div>
+						<input class="input_check" onclick="inpt()" type="checkbox">
+						<input class="input_check_5"  onclick="inpt5()" type="checkbox">
+					</div>
+					<label class="skill-bonus">0</label>
+				</div>
+				<div class="skill-wrapper"><label class="cur-skill">Красноречие(<b class="mod-key">ХАР</b>)</label>
+					<div>
+						<input class="input_check" onclick="inpt()" type="checkbox">
+						<input class="input_check_5"  onclick="inpt5()" type="checkbox">
+					</div>
+					<label class="skill-bonus">0</label>
+				</div>
+				<div class="skill-wrapper"><label class="cur-skill">Командование(<b class="mod-key">ХАР</b>)</label>
+					<div>
+						<input class="input_check" onclick="inpt()" type="checkbox">
+						<input class="input_check_5"  onclick="inpt5()" type="checkbox">
+					</div>
+					<label class="skill-bonus">0</label>
+				</div>
+				<div class="skill-wrapper"><label class="cur-skill">Ловкость рук(<b class="mod-key">ЛОВ</b>)</label>
+					<div>
+						<input class="input_check" onclick="inpt()" type="checkbox">
+						<input class="input_check_5"  onclick="inpt5()" type="checkbox">
+					</div>
+					<label class="skill-bonus">0</label>
+				</div>
+				<div class="skill-wrapper"><label class="cur-skill">Метательное оружие(<b class="mod-key">ЛОВ</b>)</label>
+					<div>
+						<input class="input_check" onclick="inpt()" type="checkbox">
+						<input class="input_check_5"  onclick="inpt5()" type="checkbox">
+					</div>
+					<label class="skill-bonus">0</label>
+				</div>
+				<div class="skill-wrapper"><label class="cur-skill">Медицина(<b class="mod-key">ИНТ</b>)</label>
+					<div>
+						<input class="input_check" onclick="inpt()" type="checkbox">
+						<input class="input_check_5"  onclick="inpt5()" type="checkbox">
+					</div>
+					<label class="skill-bonus">0</label>
+				</div>
+				<div class="skill-wrapper"><label class="cur-skill">Народная мудрость(<b class="mod-key">ВОС</b>)</label>
+					<div>
+						<input class="input_check" onclick="inpt()" type="checkbox">
+						<input class="input_check_5"  onclick="inpt5()" type="checkbox">
+					</div>
+					<label class="skill-bonus">0</label>
+				</div>
+				<div class="skill-wrapper"><label class="cur-skill">Научные знания(<b class="mod-key">ИНТ</b>)</label>
+					<div>
+						<input class="input_check" onclick="inpt()" type="checkbox">
+						<input class="input_check_5"  onclick="inpt5()" type="checkbox">
+					</div>
+					<label class="skill-bonus">0</label>
+				</div>
+				<div class="skill-wrapper"><label class="cur-skill">Политика(<b class="mod-key">ИНТ</b>)</label>
+					<div>
+						<input class="input_check" onclick="inpt()" type="checkbox">
+						<input class="input_check_5"  onclick="inpt5()" type="checkbox">
+					</div>
+					<label class="skill-bonus">0</label>
+				</div>
+				<div class="skill-wrapper"><label class="cur-skill">Мистицизм(<b class="mod-key">ИНТ</b>)</label>
+					<div>
+						<input class="input_check" onclick="inpt()" type="checkbox">
+						<input class="input_check_5"  onclick="inpt5()" type="checkbox">
+					</div>
+					<label class="skill-bonus">0</label>
+				</div>
+				<div class="skill-wrapper"><label class="cur-skill">Ремесло(<b class="mod-key">ТЕЛ</b>)</label>
+					<div>
+						<input class="input_check" onclick="inpt()" type="checkbox">
+						<input class="input_check_5"  onclick="inpt5()" type="checkbox">
+					</div>
+					<label class="skill-bonus">0</label>
+				</div>
+				<div class="skill-wrapper"><label class="cur-skill">Скрытность(<b class="mod-key">ЛОВ</b>)</label>
+					<div>
+						<input class="input_check" onclick="inpt()" type="checkbox">
+						<input class="input_check_5"  onclick="inpt5()" type="checkbox">
+					</div>
+					<label class="skill-bonus">0</label>
+				</div>
+				<div class="skill-wrapper"><label class="cur-skill">Стрельба(ВОС)/(<b class="mod-key">ЛОВ</b>)</label>
+					<div>
+						<input class="input_check" onclick="inpt()" type="checkbox">
+						<input class="input_check_5"  onclick="inpt5()" type="checkbox">
+					</div>
+					<label class="skill-bonus">0</label>
+				</div>
+				<div class="skill-wrapper"><label class="cur-skill">Хитрость(<b class="mod-key">ХАР</b>)</label>
+					<div>
+						<input class="input_check" onclick="inpt()" type="checkbox">
+						<input class="input_check_5"  onclick="inpt5()" type="checkbox">
+					</div>
+					<label class="skill-bonus">0</label>
+				</div>
+				<div class="skill-wrapper"><label class="cur-skill">Холодное оружие(СИЛ/<b class="mod-key">ЛОВ</b>)</label>
+					<div>
+						<input class="input_check" onclick="inpt()" type="checkbox">
+						<input class="input_check_5"  onclick="inpt5()" type="checkbox">
+					</div>
+					<label class="skill-bonus">0</label>
+				</div>
+			</div>
+	
+			<div class="armorWeapon">
+				<label for="">Броня</label> <button>Добавить</button></br>
+				<label for="">Ранения</label> <button>Добавить</button></br>
+				<label for="">Оружие</label> <button>Добавить</button></br>
+			</div>
+		</div>
+
+		<div class="feats">
+			<div class="section-border"><p>Черты</p></div>
+			<button class="add-feat__btn">Добавить</button>
+		</div>
+
+</div>
+		<script src="script.js"></script>
+	</body>
+</html>
